@@ -1,0 +1,74 @@
+{
+  "name": "Khairunnisa",
+  "title": "Software Engineer",
+  "contact": {
+    "address": "Banten, 15144",
+    "phone": "+62 813-8560-1299",
+    "email": "nissa.khairunnisaaa@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/khairunnisa-83022861/",
+    "github": "https://www.github.com/khairunnisaa"
+  },
+  "summary": "Dynamic and result-oriented Software Engineer with 10+ years of experience in backend and full-stack development, specializing in scalable systems for fintech, banking, and e-commerce sectors.",
+  "skills": {
+    "languages": [
+      "Java",
+      "JavaScript",
+      "PHP"
+    ],
+    "frameworks": [
+      "Spring Boot",
+      "React",
+      "Node.js"
+    ],
+    "databases": [
+      "Oracle",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB"
+    ],
+    "tools": [
+      "Git",
+      "Docker",
+      "Kafka",
+      "Nginx",
+      "OpenShift"
+    ],
+    "webTech": [
+      "HTML",
+      "CSS",
+      "RESTful APIs"
+    ],
+    "cloud": [
+      "AWS",
+      "Google Cloud Platform"
+    ]
+  },
+  "languagesSpoken": {
+    "Indonesia": "Excellent",
+    "English": "Very Good"
+  },
+  "education": {
+    "degree": "B.Eng in Computer Engineering",
+    "institution": "Telkom University",
+    "location": "Bandung, Indonesia",
+    "period": "2009-09 to 2014-05"
+  },
+  "experience": [
+    {
+      "role": "Backend Engineer - Java",
+      "company": "Mandrill Tech (MoneyX)",
+      "location": "Malaysia",
+      "period": "June 2024 \u2013 Present",
+      "responsibilities": [
+        "Developed Lead Management & Admin Dashboard modules",
+        "Reduced processing time by 20% with optimized approval flows"
+      ],
+      "tools": [
+        "Java Spring Boot",
+        "PostgreSQL",
+        "Redis",
+        "Docker"
+      ]
+    }
+  ]
+}
