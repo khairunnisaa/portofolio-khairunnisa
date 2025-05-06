@@ -32,7 +32,7 @@ export default function Home() {
                         <div className="col-lg-6 mx-auto">
                             <h1 className="display-2 fw-bold lh-1 text-white" data-aos="fade-up">Khairunnisa</h1>
                             <h1 className="h3 fw-bold lh-1" data-aos="fade-up">
-                                <p>I'm <span ref={el} className="text-xl font-mono text-blue-600" /></p></h1>
+                                <p>I'm Fullstack Developer<span ref={el} className="text-xl font-mono text-blue-600" /></p></h1>
                         </div>
                         <div className="col-lg-4 mx-auto fw-light" data-aos="fade-up">
                             <ul className="list-unstyled ">

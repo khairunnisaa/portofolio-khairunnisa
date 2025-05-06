@@ -1,6 +1,4 @@
 body {
-  font-family: 'Fira Code', 'Montserrat', 'Marker Felt', 'Monospaced', serif;
+  font-family: 'Montserrat', 'Fira Code', 'Marker Felt', 'Monospaced', serif !important;
   background-color: #f8f9fa;
-  /*background-image: url("../../public/img.png");*/
 }
-
