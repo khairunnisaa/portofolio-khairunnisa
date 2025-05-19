@@ -20,10 +20,10 @@ import theme from '@/app/theme/theme';
 
 const navItems = [
     { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    { label: 'Experience', path: '/experience' },
-    { label: 'Projects', path: '/projects' },
-    { label: 'Contact', path: '/contact' },
+    { label: 'About', path: '/pages/about' },
+    { label: 'Experience', path: '/pages/experience' },
+    { label: 'Projects', path: '/pages/projects' },
+    { label: 'Contact', path: '/pages/contact' },
 ];
 
 const Header = () => {
