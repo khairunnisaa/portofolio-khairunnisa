@@ -1,136 +1,131 @@
+'use client';
 import * as React from "react";
-import Image from "next/image";
+import {Card, CardContent, CardMedia, Chip, Container, Typography} from "@mui/material";
+import {Stack} from "@mui/system";
+import {motion} from "framer-motion";
 
+const experiences = [
+    {
+        title: 'Backend Developer - Java Spring Boot',
+        company: 'Mandrill Tech Sdn, Bhd. - MoneyX',
+        year: '2024 - Present',
+    },
+    {
+        title: 'Full-Stack Web Developer',
+        company: 'Freelance',
+        year: '2012 - 2020',
+    },
+    {
+        title: 'Frontend Developer',
+        company: 'Creative Studio',
+        year: '2005 - 2012',
+    },
+];
+
+
+const techStack = [
+    {
+        title: 'Frontend Technology',
+        stack: ['Angular.JS','Vue.js','Next.js', 'React.js','Nuxt.js'],
+    },
+    {
+        title: 'Backend Technology',
+        stack: ['Node.JS','Java Spring Boot','Java 8', 'Laravel'],
+    },
+    {
+        title: 'Css Framework',
+        stack: ['Boostrap','MUI','Tailwind'],
+    },
+    {
+        title: 'Development Tools',
+        stack: ['Git','Docker', 'Kafka', 'Nginx', 'OpenShift'],
+    },
+    {
+        title: 'Cloud Platform',
+        stack: ['AWS',' Google Cloud Platform'],
+    },
+    {
+        title: 'Database',
+        stack: ['Oracle', 'MySQL Server', 'MongoDB', 'PostgreSQL'],
+    },
+];
 export default function About() {
 
     return (
-        <div>
-                <section id="about" className="about section">
-                        <div className="container section-title" data-aos="fade-up">
-                                <h2>About</h2>
-                                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum
-                                        quidem.
-                                        Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui
-                                        impedit
-                                        suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-                        </div>
+        <Container sx={{ py: 10 }}>
 
-                        <div className="container" data-aos="fade-up" data-aos-delay="100">
+            {/* FOTO PROFIL + INTRO */}
 
-                                <div className="row gy-4 justify-content-center">
-                                        <div className="col-lg-4">
-                                                <Image src="img.png" className="img-fluid" alt="khairunnisa"/>
-                                        </div>
-                                        <div className="col-lg-8 content">
-                                                <h2>UI/UX Designer &amp; Web Developer.</h2>
-                                                <p className="fst-italic py-3">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                        eiusmod
-                                                        tempor incididunt ut labore et dolore
-                                                        magna aliqua.
-                                                </p>
-                                                <div className="row">
-                                                        <div className="col-lg-6">
-                                                                <ul>
-                                                                        <li><i className="bi bi-chevron-right"></i>
-                                                                                <strong>Birthday:</strong>
-                                                                                <span>1 May 1995</span></li>
-                                                                        <li><i className="bi bi-chevron-right"></i>
-                                                                                <strong>Website:</strong>
-                                                                                <span>www.example.com</span></li>
-                                                                        <li><i className="bi bi-chevron-right"></i>
-                                                                                <strong>Phone:</strong>
-                                                                                <span>+123 456 7890</span></li>
-                                                                        <li><i className="bi bi-chevron-right"></i>
-                                                                                <strong>City:</strong>
-                                                                                <span>New York, USA</span></li>
-                                                                </ul>
-                                                        </div>
-                                                        <div className="col-lg-6">
-                                                                <ul>
-                                                                        <li><i className="bi bi-chevron-right"></i>
-                                                                                <strong>Age:</strong> <span>30</span>
-                                                                        </li>
-                                                                        <li><i className="bi bi-chevron-right"></i>
-                                                                                <strong>Degree:</strong>
-                                                                                <span>Master</span>
-                                                                        </li>
-                                                                        <li><i className="bi bi-chevron-right"></i>
-                                                                                <strong>Email:</strong>
-                                                                                <span>email@example.com</span></li>
-                                                                        <li><i className="bi bi-chevron-right"></i>
-                                                                                <strong>Freelance:</strong>
-                                                                                <span>Available</span></li>
-                                                                </ul>
-                                                        </div>
-                                                </div>
-                                                <p className="py-3">
-                                                        Officiis eligendi itaque labore et dolorum mollitia officiis
-                                                        optio vero.
-                                                        Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor
-                                                        incidunt
-                                                        officia tempore. Et eius omnis.
-                                                        Cupiditate ut dicta maxime officiis quidem quia. Sed et
-                                                        consectetur qui
-                                                        quia repellendus itaque neque.
-                                                </p>
-                                        </div>
-                                </div>
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+            >
+                <Card sx={{height: '80vh', display: 'flex', flexDirection: 'row', border:'none'}}>
+                    <CardMedia
+                        sx={{objectFit: 'cover'}}
+                        component="img"
+                        image={'/nisa.jpeg'}
+                        alt={'nisa.jpeg'}
+                    />
+                    <CardContent>
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                        >
+                        <Typography variant="h5" component="div" gutterBottom>
+                            Hello! I&#39;m <strong>Khairunnisa</strong>,
+                        </Typography>
+                        <Typography variant="body2">
+                            <strong>About me</strong> I,am a experienced Software Engineer with a
+                            strong background in backend and full-
+                            stack development. Over a decade of
+                            expertise in fintech, e-commerce, and
+                            banking industries. Skilled in Java
+                            Spring Boot, PostgreSQL, and Node.js
+                            to drive system scalability and
+                            enhance user experience. Proven
+                            ability to lead cross-functional teams in
+                            delivering innovative solutions and
+                            solving complex projects within tight
+                            deadlines. Committed to continuous
+                            learning to stay ahead in the ever-
+                            evolving tech landscape.
+                        </Typography>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                        >
+                        <Typography variant="h5" mt={2} component={'div'} gutterBottom>
+                            Tech Stack
+                        </Typography>
+                        {techStack.map((stack, i) => (
+                            <Stack key={i} mt={1}>
+                                <Typography variant={'body2'}>
+                                    {stack.title}
+                                </Typography>
+                                <Stack direction="row" spacing={1} flexWrap="wrap">
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 50 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 1 }}
+                                    >
+                                    {stack.stack.map((s, a) => (
+                                        <Chip key={a} label={s} sx={{ mb: 1 }} />
+                                    ))}
+                                    </motion.div>
+                                </Stack>
+                            </Stack>
+                        ))}
+                        </motion.div>
 
-                        </div>
-                </section>
-                <section id="stats" className="stats section">
-                        <div className="container" data-aos="fade-up" data-aos-delay="100">
-                                <div className="row gy-4">
-                                        <div className="col-lg-3 col-md-6">
-                                                <div className="stats-item">
-                                                        <i className="bi bi-emoji-smile"></i>
-                                                        <span data-purecounter-start="0" data-purecounter-end="232"
-                                                              data-purecounter-duration="1"
-                                                              className="purecounter"></span>
-                                                        <p><strong>Happy Clients</strong> <span>consequuntur quae</span>
-                                                        </p>
-                                                </div>
-                                        </div>
+                    </CardContent>
+                </Card>
+            </motion.div>
 
-                                        <div className="col-lg-3 col-md-6">
-                                                <div className="stats-item">
-                                                        <i className="bi bi-journal-richtext"></i>
-                                                        <span data-purecounter-start="0" data-purecounter-end="521"
-                                                              data-purecounter-duration="1"
-                                                              className="purecounter"></span>
-                                                        <p><strong>Projects</strong>
-                                                                <span>adipisci atque cum quia aut</span></p>
-                                                </div>
-                                        </div>
-
-                                        <div className="col-lg-3 col-md-6">
-                                                <div className="stats-item">
-                                                        <i className="bi bi-headset"></i>
-                                                        <span data-purecounter-start="0" data-purecounter-end="1453"
-                                                              data-purecounter-duration="1"
-                                                              className="purecounter"></span>
-                                                        <p><strong>Hours Of Support</strong>
-                                                                <span>aut commodi quaerat</span></p>
-                                                </div>
-                                        </div>
-
-                                        <div className="col-lg-3 col-md-6">
-                                                <div className="stats-item">
-                                                        <i className="bi bi-people"></i>
-                                                        <span data-purecounter-start="0" data-purecounter-end="32"
-                                                              data-purecounter-duration="1"
-                                                              className="purecounter"></span>
-                                                        <p><strong>Hard Workers</strong>
-                                                                <span>rerum asperiores dolor</span></p>
-                                                </div>
-                                        </div>
-
-                                </div>
-                        </div>
-
-                </section>
-        </div>
-
+        </Container>
     );
 }
