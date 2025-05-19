@@ -22,7 +22,7 @@
     headerToggleBtn.addEventListener('click', headerToggle);
 
     /**
-     * Hide mobile nav on same-page/hash links
+     * Hide mobile nav on same-pages/hash links
      */
     document.querySelectorAll('#navmenu a').forEach(navmenu => {
         navmenu.addEventListener('click', () => {
@@ -187,7 +187,7 @@
     window.addEventListener("load", initSwiper);
 
     /**
-     * Correct scrolling position upon page load for URLs containing hash links.
+     * Correct scrolling position upon pages load for URLs containing hash links.
      */
     window.addEventListener('load', function(e) {
         if (window.location.hash) {
