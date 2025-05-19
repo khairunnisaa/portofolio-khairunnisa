@@ -1,43 +1,67 @@
-'use client'
-import React, {useEffect, useState} from 'react';
-import {Box, Button, Container, Typography} from "@mui/material";
-import theme from "@/app/theme/theme";
+'use client';
+import React, { useEffect, useState } from 'react';
+import { Box, Button, Container, Typography } from '@mui/material';
+import theme from '@/app/theme/theme';
+import Link from 'next/link';
 
+// Helper buat ambil asset dari public (pakai env variable kalau mau)
 const getAssetPath = (path: string) => {
-    return `${process.env.NEXT_PUBLIC_BASE_URL}${path}`;
+    return `${process.env.NEXT_PUBLIC_BASE_URL || ''}${path}`;
 };
 
+const roles = ['Full-Stack Developer', 'Backend Developer', 'Software Developer'];
+
 const Hero = () => {
-    const [text, setText] = useState('');
-    const [loopIndex, setLoopIndex] = useState(0);
-    const [typingIndex, setTypingIndex] = useState(0);
-    const [deleting, setDeleting] = useState(false);
-    const typingText = ["Full-Stack Developer", "Backend Developer", "Software Developer"];
+    const [displayedText, setDisplayedText] = useState('');
+    const [roleIndex, setRoleIndex] = useState(0);
+    const [charIndex, setCharIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    // Setting delay
+    const typingDelay = 80;
+    const deletingDelay = 40;
+    const stayDelay = 900;  // Setelah selesai ketik, tahan sebentar sebelum hapus
+    const switchDelay = 400; // Setelah hapus semua, tahan sebentar sebelum lanjut ke role berikutnya
 
     useEffect(() => {
-        const current = typingText[loopIndex % typingText.length];
-        const delay = deleting ? 40 : 80;
+        const currentRole = roles[roleIndex % roles.length];
+        let timeoutId: NodeJS.Timeout;
 
-        const timer = setTimeout(() => {
-            setText(current.substring(0, typingIndex));
-            if (!deleting && typingIndex < current.length) {
-                setTypingIndex((prev) => prev + 1);
-            } else if (deleting && typingIndex > 0) {
-                setTypingIndex((prev) => prev - 1);
-            } else {
-                setDeleting(!deleting);
-                if (!deleting) setLoopIndex((prev) => prev + 1);
-            }
-        }, delay);
+        if (!isDeleting && charIndex < currentRole.length) {
+            // Ngetik karakter baru
+            timeoutId = setTimeout(() => setCharIndex(charIndex + 1), typingDelay);
+        } else if (isDeleting && charIndex > 0) {
+            // Menghapus karakter
+            timeoutId = setTimeout(() => setCharIndex(charIndex - 1), deletingDelay);
+        } else if (!isDeleting && charIndex === currentRole.length) {
+            // Sudah selesai ketik, tahan sebelum mulai hapus
+            timeoutId = setTimeout(() => setIsDeleting(true), stayDelay);
+        } else if (isDeleting && charIndex === 0) {
+            // Sudah hapus semua, lanjut ke role berikutnya
+            timeoutId = setTimeout(() => {
+                setIsDeleting(false);
+                setRoleIndex((prev) => prev + 1);
+            }, switchDelay);
+        }
 
-        return () => clearTimeout(timer);
-    }, [typingIndex, deleting, loopIndex]);
+        setDisplayedText(currentRole.substring(0, charIndex));
+        return () => clearTimeout(timeoutId);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [charIndex, isDeleting, roleIndex]);
+
+    // Blinking cursor style
+    const cursorStyle: React.CSSProperties = {
+        color: '#90caf9',
+        marginLeft: '2px',
+        fontWeight: 600,
+        animation: 'blink 1s steps(1) infinite'
+    };
 
     return (
         <Box
             sx={{
-                height: 'calc(100vh)',  // height dikurangi tinggi navbar// padding top supaya konten tidak tertutup navbar
-                backgroundImage: 'url('+getAssetPath('/hero-bg-2.jpg')+')',
+                minHeight: '100vh',
+                backgroundImage: `url(${getAssetPath('/hero-bg.jpg')})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 position: 'relative',
@@ -65,26 +89,54 @@ const Hero = () => {
 
             {/* Content */}
             <Container sx={{ position: 'relative', zIndex: 2 }}>
-                    <Typography variant="h3" fontWeight="bold" gutterBottom sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>
-                        Hello, I’m <span style={{ color: '#90caf9' }}>Khairunnisa</span>
-                    </Typography>
+                <Typography
+                    variant="h3"
+                    component="h1"
+                    fontWeight="bold"
+                    gutterBottom
+                    sx={{ fontSize: { xs: '2rem', md: '3rem' } }}
+                >
+                    Hello, I’m <span style={{ color: '#90caf9' }}>Khairunnisa</span>
+                </Typography>
 
-                    <Typography variant="h5" sx={{ minHeight: 40 }} gutterBottom>
-                        Full-Stack Developer | Backend Developer | Software Developer
-                        {/*<span style={{ color: '#90caf9' }}>|</span>*/}
-                    </Typography>
+                <Typography variant="h5" sx={{ minHeight: 50 }} gutterBottom>
+                    <span style={{ color: '#90caf9' }}>{displayedText || '\u00A0'}</span>
+                    <span style={cursorStyle}>|</span>
+                </Typography>
 
-                    <Box mt={3} display="flex" flexWrap="wrap" gap={2}>
-                        <Button variant="contained" color="primary" href="/projects">
-                            View Projects
-                        </Button>
-                        <Button variant="outlined" color="inherit" href="/contact">
-                            Contact Me
-                        </Button>
-                    </Box>
+                <Box mt={3} display="flex" flexWrap="wrap" gap={2}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        component={Link}
+                        href="/pages/projects"
+                        sx={{ fontWeight: 600 }}
+                    >
+                        View Projects
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        color="inherit"
+                        component={Link}
+                        href="/pages/contact"
+                        sx={{ fontWeight: 600 }}
+                    >
+                        Contact Me
+                    </Button>
+                </Box>
             </Container>
+
+            {/* Blinking Cursor Keyframes */}
+            <style>
+                {`
+          @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+          }
+        `}
+            </style>
         </Box>
-    )
-}
+    );
+};
 
 export default Hero;

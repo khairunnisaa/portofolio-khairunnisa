@@ -1,6 +1,5 @@
 'use client';
-import {Typography, Container, CardMedia, Card, CardContent, CardActions, Button} from '@mui/material';
-import {Grid} from "@mui/system";
+import { Typography, Container, CardMedia, Card, CardContent, CardActions, Button, Box, Stack } from '@mui/material';
 import React from "react";
 
 export interface Project {
@@ -10,23 +9,23 @@ export interface Project {
     link: string;
 }
 
-const projects = [
+const projects: Project[] = [
     {
         title: 'Anime Search App',
         description: 'A React app to search and browse anime using Jikan API.',
-        image: '/images/anime-app.png',
+        image: 'https://picsum.photos/200/300',
         link: 'https://github.com/yourusername/anime-search-app',
     },
     {
         title: 'Tour Booking Website',
         description: 'Landing pages for a tour company with pricing cards and contact form.',
-        image: '/images/tour-website.png',
+        image: 'https://picsum.photos/200/300',
         link: 'https://yourtourwebsite.com',
     },
     {
         title: 'Portfolio Website',
         description: 'My personal portfolio built with Next.js, TypeScript, and MUI.',
-        image: '/images/portfolio.png',
+        image: 'https://picsum.photos/200/300',
         link: '/',
     },
 ];
@@ -34,41 +33,80 @@ const projects = [
 export default function Page() {
     return (
         <Container sx={{ py: 10 }}>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom fontWeight="bold">
                 My Projects
             </Typography>
-            <Grid container spacing={4}>
+            <Stack spacing={4}>
                 {projects.map((project, index) => (
-                    <Grid key={index} sx={{xs:12, sm:6, md:4}}>
-                        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <CardMedia
-                                component="img"
-                                height="140"
-                                image={project.image}
-                                alt={project.title}
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h6" component="div">
+                    <Card
+                        key={index}
+                        sx={{
+                            display: 'flex',
+                            flexDirection: {
+                                xs: 'column',
+                                md: index % 2 === 1 ? 'row-reverse' : 'row', // Zig-zag effect
+                            },
+                            alignItems: 'center',
+                            minHeight: 220,
+                            boxShadow: 3,
+                            borderRadius: 3,
+                            overflow: 'hidden',
+                            transition: 'box-shadow 0.3s',
+                            '&:hover': {
+                                boxShadow: 6,
+                            },
+                        }}
+                    >
+                        <CardMedia
+                            component="img"
+                            image={project.image}
+                            alt={project.title}
+                            sx={{
+                                width: { xs: '100%', md: 280 },
+                                height: { xs: 180, md: 220 },
+                                objectFit: 'cover',
+                                flexShrink: 0,
+                                filter: 'brightness(0.92)',
+                                transition: 'filter 0.3s',
+                                '&:hover': {
+                                    filter: 'brightness(1)',
+                                },
+                            }}
+                        />
+                        <Box
+                            sx={{
+                                flex: 1,
+                                p: { xs: 2, md: 3 },
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                bgcolor: { xs: 'background.paper', md: 'transparent' },
+                            }}
+                        >
+                            <CardContent sx={{ flex: 1 }}>
+                                <Typography variant="h6" fontWeight="bold" gutterBottom>
                                     {project.title}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
+                                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
                                     {project.description}
                                 </Typography>
                             </CardContent>
                             <CardActions>
                                 <Button
-                                    size="small"
+                                    variant="contained"
+                                    color="primary"
                                     href={project.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    sx={{ borderRadius: 2, px: 3 }}
                                 >
                                     View Project
                                 </Button>
                             </CardActions>
-                        </Card>
-                    </Grid>
+                        </Box>
+                    </Card>
                 ))}
-            </Grid>
+            </Stack>
         </Container>
     );
 }

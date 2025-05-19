@@ -20,9 +20,6 @@ export default function RootLayout({children,}: { children: React.ReactNode;
         <html lang="en">
         <body>
         <ThemeRegistry>{children}</ThemeRegistry>
-        <script type="module">
-            import motion from 'https://cdn.jsdelivr.net/npm/motion@12.12.1/+esm'
-        </script>
         </body>
         </html>
     );
