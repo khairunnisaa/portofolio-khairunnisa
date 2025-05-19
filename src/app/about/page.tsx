@@ -4,24 +4,9 @@ import {Card, CardContent, CardMedia, Chip, Container, Typography} from "@mui/ma
 import {Stack} from "@mui/system";
 import {motion} from "framer-motion";
 
-const experiences = [
-    {
-        title: 'Backend Developer - Java Spring Boot',
-        company: 'Mandrill Tech Sdn, Bhd. - MoneyX',
-        year: '2024 - Present',
-    },
-    {
-        title: 'Full-Stack Web Developer',
-        company: 'Freelance',
-        year: '2012 - 2020',
-    },
-    {
-        title: 'Frontend Developer',
-        company: 'Creative Studio',
-        year: '2005 - 2012',
-    },
-];
-
+const getAssetPath = (path: string) => {
+    return `${process.env.NEXT_PUBLIC_BASE_URL}${path}`;
+};
 
 const techStack = [
     {
@@ -57,15 +42,18 @@ export default function About() {
             {/* FOTO PROFIL + INTRO */}
 
             <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                    duration: 0.4,
+                    scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+                }}
             >
                 <Card sx={{height: '80vh', display: 'flex', flexDirection: 'row', border:'none'}}>
                     <CardMedia
                         sx={{objectFit: 'cover'}}
                         component="img"
-                        image={'/nisa.jpeg'}
+                        image={getAssetPath('/nisa.jpeg')}
                         alt={'nisa.jpeg'}
                     />
                     <CardContent>

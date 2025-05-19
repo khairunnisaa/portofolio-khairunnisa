@@ -34,10 +34,6 @@ const theme = createTheme({
         info: {
             main: '#2196f3',
         },
-        customBlue: {
-            main: '#1e88e5',
-            contrastText: '#fff',
-        },
     },
 
     typography: {

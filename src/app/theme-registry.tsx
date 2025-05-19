@@ -1,6 +1,6 @@
 'use client';
 
-import {ThemeProvider, CssBaseline, Box} from '@mui/material';
+import {ThemeProvider, CssBaseline} from '@mui/material';
 import { ReactNode } from 'react';
 import theme from '../app/theme/theme';
 import Header from '../app/components/Header';

@@ -6,7 +6,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import {motion} from 'framer-motion';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import LanguageIcon from '@mui/icons-material/Language';
 import BusinessIcon from '@mui/icons-material/Business';
 
 export default function Page() {

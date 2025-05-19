@@ -4,6 +4,10 @@ import {Box, Button, Container, Typography} from "@mui/material";
 import theme from "@/app/theme/theme";
 import {motion} from "framer-motion";
 
+const getAssetPath = (path: string) => {
+    return `${process.env.NEXT_PUBLIC_BASE_URL}${path}`;
+};
+
 const Hero = () => {
     const [text, setText] = useState('');
     const [loopIndex, setLoopIndex] = useState(0);
@@ -34,7 +38,7 @@ const Hero = () => {
         <Box
             sx={{
                 height: 'calc(100vh)',  // height dikurangi tinggi navbar// padding top supaya konten tidak tertutup navbar
-                backgroundImage: 'url(/hero-bg-2.jpg)',
+                backgroundImage: 'url('+getAssetPath('/hero-bg-2.jpg')+')',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 position: 'relative',
