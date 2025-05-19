@@ -129,11 +129,6 @@ const experiences = [
 export default function ExperiencePage() {
     return (
         <Container sx={{ py: 10 }}>
-            <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-            >
             <Typography variant="h4" gutterBottom>
                 Experience
             </Typography>
@@ -161,27 +156,15 @@ export default function ExperiencePage() {
                                     {exp.company}
                                 </Typography>
                                 {exp.description.map((des,index)=> (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 50 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 1 }}
-                                    >
                                     <Stack direction={'row'}  alignContent={'center'} key={index}>
                                         <FiberManualRecordIcon sx={{fontSize: 7, marginX: 1, marginTop: 1}}/>
                                         <Typography variant="body2">{des}</Typography>
                                     </Stack>
-                                    </motion.div>
                                 ))}
                                 <Stack direction={'row'}  alignContent={'center'} key={index}>
                                     <Typography variant="body2">Tool :</Typography>
                                 {exp.tool.map((tool,index)=> (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 50 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 1 }}
-                                    >
                                         <Chip size={'small'} label={tool} key={index} sx={{marginX: 1}}/>
-                                    </motion.div>
                                 ))}
                                 </Stack>
                             </Paper>
@@ -189,7 +172,6 @@ export default function ExperiencePage() {
                     </TimelineItem>
                 ))}
             </Timeline>
-            </motion.div>
         </Container>
     );
 }

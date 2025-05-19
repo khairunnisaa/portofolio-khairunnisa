@@ -2,7 +2,6 @@
 import {Typography, Container, CardMedia, Card, CardContent, CardActions, Button} from '@mui/material';
 import {Grid} from "@mui/system";
 import React from "react";
-import {motion} from 'framer-motion';
 
 export interface Project {
     title: string;
@@ -41,11 +40,6 @@ export default function Page() {
             <Grid container spacing={4}>
                 {projects.map((project, index) => (
                     <Grid key={index} sx={{xs:12, sm:6, md:4}}>
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1 }}
-                        >
                         <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                             <CardMedia
                                 component="img"
@@ -72,7 +66,6 @@ export default function Page() {
                                 </Button>
                             </CardActions>
                         </Card>
-                        </motion.div>
                     </Grid>
                 ))}
             </Grid>

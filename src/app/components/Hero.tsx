@@ -2,7 +2,6 @@
 import React, {useEffect, useState} from 'react';
 import {Box, Button, Container, Typography} from "@mui/material";
 import theme from "@/app/theme/theme";
-import {motion} from "framer-motion";
 
 const getAssetPath = (path: string) => {
     return `${process.env.NEXT_PUBLIC_BASE_URL}${path}`;
@@ -57,7 +56,7 @@ const Hero = () => {
                     right: 0,
                     bottom: 0,
                     opacity: 0.5,
-                    background: "#476167",
+                    background: "#121313",
                     width: "100%",
                     height: "100%",
                     zIndex: 1,
@@ -66,18 +65,13 @@ const Hero = () => {
 
             {/* Content */}
             <Container sx={{ position: 'relative', zIndex: 2 }}>
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                >
                     <Typography variant="h3" fontWeight="bold" gutterBottom sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>
                         Hello, I’m <span style={{ color: '#90caf9' }}>Khairunnisa</span>
                     </Typography>
 
                     <Typography variant="h5" sx={{ minHeight: 40 }} gutterBottom>
-                        {text}
-                        <span style={{ color: '#90caf9' }}>|</span>
+                        Full-Stack Developer | Backend Developer | Software Developer
+                        {/*<span style={{ color: '#90caf9' }}>|</span>*/}
                     </Typography>
 
                     <Box mt={3} display="flex" flexWrap="wrap" gap={2}>
@@ -88,7 +82,6 @@ const Hero = () => {
                             Contact Me
                         </Button>
                     </Box>
-                </motion.div>
             </Container>
         </Box>
     )

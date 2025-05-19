@@ -38,17 +38,7 @@ export default function About() {
 
     return (
         <Container sx={{ py: 10 }}>
-
             {/* FOTO PROFIL + INTRO */}
-
-            <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                    duration: 0.4,
-                    scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-                }}
-            >
                 <Card sx={{height: '80vh', display: 'flex', flexDirection: 'row', border:'none'}}>
                     <CardMedia
                         sx={{objectFit: 'cover'}}
@@ -57,11 +47,6 @@ export default function About() {
                         alt={'nisa.jpeg'}
                     />
                     <CardContent>
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1 }}
-                        >
                         <Typography variant="h5" component="div" gutterBottom>
                             Hello! I&#39;m <strong>Khairunnisa</strong>,
                         </Typography>
@@ -81,12 +66,7 @@ export default function About() {
                             learning to stay ahead in the ever-
                             evolving tech landscape.
                         </Typography>
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1 }}
-                        >
+
                         <Typography variant="h5" mt={2} component={'div'} gutterBottom>
                             Tech Stack
                         </Typography>
@@ -96,24 +76,14 @@ export default function About() {
                                     {stack.title}
                                 </Typography>
                                 <Stack direction="row" spacing={1} flexWrap="wrap">
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 50 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 1 }}
-                                    >
                                     {stack.stack.map((s, a) => (
                                         <Chip key={a} label={s} sx={{ mb: 1 }} />
                                     ))}
-                                    </motion.div>
                                 </Stack>
                             </Stack>
                         ))}
-                        </motion.div>
-
                     </CardContent>
                 </Card>
-            </motion.div>
-
         </Container>
     );
 }
