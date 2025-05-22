@@ -45,7 +45,7 @@ const Header = () => {
                 elevation={4}
                 sx={{
                     color: theme.palette.primary.main,
-                    backgroundColor: 'rgb(71,97,103,0.6)',
+                    backgroundColor: 'rgba(7,20,62,0.6)',
                     backdropFilter: 'blur(6px)',
                     zIndex: (theme) => theme.zIndex.drawer - 1,
                 }}
