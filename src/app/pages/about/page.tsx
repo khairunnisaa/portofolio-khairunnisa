@@ -27,7 +27,7 @@ export default function About() {
         <Container sx={{ py: 10 }}>
             <Card
                 sx={{
-                    backgroundImage: 'url(/images/background/bg-2.jpg)',
+                    backgroundImage: `url(${getAssetPath('/images/background/bg-2.jpg')})`,
                     minHeight: '100vh',
                     display: 'flex',
                     flexDirection: 'column',
@@ -39,7 +39,7 @@ export default function About() {
                         direction={{ xs: 'column', md: 'row' }}
                         spacing={3}
                         sx={{
-                            backgroundImage: 'url(/images/background/bg-3.png)',
+                            backgroundImage: `url(${getAssetPath('/images/background/bg-3.png')})`,
                             backgroundRepeat: 'no-repeat',
                             backgroundSize: 'cover',
                             borderRadius: { xs: 4, md: '100px 0 0 100px' },
@@ -48,7 +48,7 @@ export default function About() {
                         }}
                     >
                         <Avatar
-                            src={data.photo}
+                            src={getAssetPath(data.photo)}
                             alt={data.photo}
                             sx={{
                                 width: 150,

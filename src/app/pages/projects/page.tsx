@@ -35,6 +35,9 @@ interface Project {
 }
 // Helper buat ambil asset dari public (pakai env variable kalau mau)
 
+const getAssetPath = (path: string) => {
+    return `${process.env.NEXT_PUBLIC_BASE_URL || ''}${path}`;
+};
 
 const TechStackSection = ({
                               title,
@@ -98,7 +101,7 @@ const ProjectDetailDrawer = ({project, open, onClose}: {
                         <ImageListItem key={i}>
                             <img
                                 srcSet={`${img.image}`}
-                                src={`${img.image}`}
+                                src={getAssetPath(img.image)}
                                 alt={img.image}
                                 loading="lazy"
                                 onClick={() => handleImageClick(img.image)}
@@ -137,7 +140,7 @@ const ProjectDetailDrawer = ({project, open, onClose}: {
                 >
                     {selectedImage && (
                         <img
-                            src={selectedImage}
+                            src={getAssetPath(selectedImage)}
                             alt="Preview"
                             style={{ maxWidth: '100%', maxHeight: '80vh', borderRadius: 8 }}
                         />

@@ -84,7 +84,7 @@ export default function ExperiencePage() {
 
                                 <TimelineSeparator>
                                     <Avatar
-                                        src={exp.icon}
+                                        src={getAssetPath(exp.icon)}
                                         alt={exp.title}
                                         sx={{ width: 56, height: 56 }}
                                     />
@@ -92,7 +92,7 @@ export default function ExperiencePage() {
                                 </TimelineSeparator>
 
                                 <TimelineContent>
-                                    <Fade in={inView} timeout={800}>
+                                    {/*<Fade in={inView} timeout={800}>*/}
                                         <Paper elevation={3} sx={{ p: 2 }}>
                                             <Typography variant="h6" fontWeight={600}>
                                                 {exp.title}
@@ -130,7 +130,7 @@ export default function ExperiencePage() {
                                                 </Stack>
                                             </Box>
                                         </Paper>
-                                    </Fade>
+                                    {/*</Fade>*/}
                                 </TimelineContent>
                             </TimelineItem>
                         );
