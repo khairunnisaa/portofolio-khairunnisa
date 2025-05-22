@@ -47,7 +47,7 @@ const Header = () => {
                     color: theme.palette.primary.main,
                     backgroundColor: 'rgb(71,97,103,0.6)',
                     backdropFilter: 'blur(6px)',
-                    zIndex: (theme) => theme.zIndex.drawer + 1,
+                    zIndex: (theme) => theme.zIndex.drawer - 1,
                 }}
             >
                 <Toolbar sx={{ justifyContent: 'space-between' }}>

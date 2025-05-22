@@ -21,7 +21,6 @@ const theme = createTheme({
             secondary: '#88d1be',
             disabled: '#9e9e9e',
         },
-        // Warna tambahan standar MUI
         success: {
             main: '#4caf50',
         },
@@ -32,7 +31,7 @@ const theme = createTheme({
             main: '#ff9800',
         },
         info: {
-            main: '#2196f3',
+            main: '#4481b6',
         },
     },
 
