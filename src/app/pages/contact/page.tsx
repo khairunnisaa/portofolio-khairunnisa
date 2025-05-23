@@ -6,7 +6,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BusinessIcon from '@mui/icons-material/Business';
-import WorkIcon from "@mui/icons-material/Work";
 import * as React from "react";
 
 const contact = [
@@ -29,7 +28,7 @@ export default function Page() {
             </Typography>
 
             <Typography variant="body1" paragraph>
-                Have a project in mind, a collaboration opportunity, or just want to say hi? I'd love to hear from you!
+                Have a project in mind, a collaboration opportunity, or just want to say hi? I&#39;d love to hear from you!
             </Typography>
 
             <Card sx={{ maxWidth: 500, borderRadius: 3, boxShadow: 4, p: 2, bgcolor: 'tan' }}>

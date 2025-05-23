@@ -1,6 +1,6 @@
 // components/ProfileCard.tsx
 import React from 'react';
-import { Card, CardMedia, CardContent, Typography, Box } from '@mui/material';
+import { Card, CardMedia, CardContent, Typography } from '@mui/material';
 
 type ProfileCardProps = {
     imageSrc: string;

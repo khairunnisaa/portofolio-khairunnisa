@@ -46,7 +46,6 @@ const Hero = () => {
 
         setDisplayedText(currentRole.substring(0, charIndex));
         return () => clearTimeout(timeoutId);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [charIndex, isDeleting, roleIndex]);
 
     // Blinking cursor style

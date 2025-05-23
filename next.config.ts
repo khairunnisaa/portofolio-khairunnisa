@@ -1,18 +1,9 @@
-import type { NextConfig } from "next";
-
-const isProd = process.env.NODE_ENV === 'production';
-
-const nextConfig: NextConfig = {
-    output: 'export',
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    basePath: '/portofolio-khairunnisa',
+    assetPrefix: '/portofolio-khairunnisa/',
     trailingSlash: true,
-    images: {
-        unoptimized: true
-    },
-    basePath: isProd ? `/portofolio-khairunnisa` : '',
-    assetPrefix: isProd ? `/portofolio-khairunnisa/` : '',
-    eslint: {
-        ignoreDuringBuilds: true
-    }
+    output: 'export', // untuk next export
 };
 
-export default nextConfig;
+module.exports = nextConfig;

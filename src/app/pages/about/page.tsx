@@ -8,8 +8,6 @@ import {
     Chip,
     Container,
     Typography,
-    useMediaQuery,
-    useTheme,
 } from "@mui/material";
 import { Stack } from "@mui/system";
 import CircleIcon from '@mui/icons-material/Circle';
@@ -20,8 +18,7 @@ const getAssetPath = (path: string) => {
 };
 
 export default function About() {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
 
     return (
         <Container sx={{ py: 10 }}>
@@ -58,7 +55,7 @@ export default function About() {
                         />
                         <Box textAlign={{ xs: 'center', md: 'left' }}>
                             <Typography variant="h4" color="white" gutterBottom>
-                                Hello! I'm <strong>{data.name}</strong>,
+                                Hello! I&#39;m <strong>{data.name}</strong>,
                             </Typography>
                             <Typography variant="h6" color="white" gutterBottom>
                                 <strong>“{data.quete}”</strong>

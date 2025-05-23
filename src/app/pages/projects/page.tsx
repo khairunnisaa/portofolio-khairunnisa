@@ -16,6 +16,7 @@ import {
     Box,
     IconButton, ImageList, ImageListItem, ImageListItemBar, Modal,
 } from '@mui/material';
+import Image from 'next/image';
 import CloseIcon from '@mui/icons-material/Close';
 import data from '../../data/khairunisa-resume.json';
 import theme from "@/app/theme/theme";
@@ -99,8 +100,7 @@ const ProjectDetailDrawer = ({project, open, onClose}: {
                 <ImageList sx={{ width: '100%', height: 400 }} gap={8}>
                     {project.images.map((img, i) => (
                         <ImageListItem key={i}>
-                            <img
-                                srcSet={`${img.image}`}
+                            <Image
                                 src={getAssetPath(img.image)}
                                 alt={img.image}
                                 loading="lazy"
@@ -129,7 +129,7 @@ const ProjectDetailDrawer = ({project, open, onClose}: {
                         top: '50%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
-                        bgcolor: 'background.paper',
+                        backgroundColor: 'background.paper',
                         boxShadow: 24,
                         p: 2,
                         outline: 'none',
@@ -139,10 +139,11 @@ const ProjectDetailDrawer = ({project, open, onClose}: {
                     }}
                 >
                     {selectedImage && (
-                        <img
+                        <Image
                             src={getAssetPath(selectedImage)}
-                            alt="Preview"
-                            style={{ maxWidth: '100%', maxHeight: '80vh', borderRadius: 8 }}
+                            alt="logo"
+                            width={'100'}
+                            height={'80'}
                         />
 
                     )}

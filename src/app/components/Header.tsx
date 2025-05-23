@@ -34,10 +34,12 @@ const Header = () => {
         setMounted(true);
     }, []);
 
-    const toggleDrawer = () => setMobileOpen(!mobileOpen);
+    // const toggleDrawer = () => setMobileOpen(!mobileOpen);
 
-    // if (!mounted) return <Toolbar />; // Hindari layout shift
-
+    const toggleDrawer = () => {
+        console.log('Toggle drawer, current state:', mobileOpen);
+        setMobileOpen(!mobileOpen);
+    };
     return (
         <>
             <AppBar
@@ -73,8 +75,15 @@ const Header = () => {
                 </Toolbar>
             </AppBar>
 
-            <Drawer anchor="right" open={mobileOpen} onClose={toggleDrawer}>
-                <Box sx={{ width: 250 }} onClick={toggleDrawer}>
+            <Drawer anchor="right"
+                    open={mobileOpen}
+                    onClose={toggleDrawer}
+                    sx={{
+                        zIndex: (theme) => theme.zIndex.drawer + 1,
+                    }}
+            >
+                <Box sx={{ width: 250 }}
+                     onClick={(e) => e.stopPropagation()}>
                     <List>
                         {navItems.map((item) => (
                             <ListItem key={item.path} disablePadding>

@@ -8,7 +8,6 @@ import {
     Chip,
     Avatar,
     useMediaQuery,
-    Fade,
 } from '@mui/material';
 import {
     Timeline,
@@ -24,7 +23,6 @@ import { Stack } from '@mui/system';
 import * as React from 'react';
 import theme from '@/app/theme/theme';
 import { useTheme } from '@mui/material/styles';
-import { useInView } from 'react-intersection-observer';
 
 const getAssetPath = (path: string) => {
     return `${process.env.NEXT_PUBLIC_BASE_URL || ''}${path}`;
@@ -42,7 +40,7 @@ export default function ExperiencePage() {
 
             <Box
                 sx={{
-                    backgroundImage: `url(/images/background/bg-2.jpg)`,
+                    backgroundImage: `url(${getAssetPath('/images/background/bg-2.jpg')})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     position: 'relative',
@@ -68,14 +66,8 @@ export default function ExperiencePage() {
 
                 <Timeline position={isMobile ? 'right' : 'alternate'} sx={{ zIndex: 2 }}>
                     {data.experience.map((exp, index) => {
-                        // eslint-disable-next-line react-hooks/rules-of-hooks
-                        const [ref, inView] = useInView({
-                            triggerOnce: true,
-                            threshold: 0.2,
-                        });
-
                         return (
-                            <TimelineItem key={index} ref={ref}>
+                            <TimelineItem key={index}>
                                 <TimelineOppositeContent sx={{ flex: 0.2 }}>
                                     <Typography variant="body2" color="text.primary">
                                         {exp.year}
@@ -92,7 +84,6 @@ export default function ExperiencePage() {
                                 </TimelineSeparator>
 
                                 <TimelineContent>
-                                    {/*<Fade in={inView} timeout={800}>*/}
                                         <Paper elevation={3} sx={{ p: 2 }}>
                                             <Typography variant="h6" fontWeight={600}>
                                                 {exp.title}
@@ -130,7 +121,6 @@ export default function ExperiencePage() {
                                                 </Stack>
                                             </Box>
                                         </Paper>
-                                    {/*</Fade>*/}
                                 </TimelineContent>
                             </TimelineItem>
                         );

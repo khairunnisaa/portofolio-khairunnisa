@@ -15,6 +15,7 @@ const theme = createTheme({
             default: '#ffffff',
             paper: '#ffffff',
         },
+
         // Warna teks
         text: {
             primary: '#476167',
@@ -33,6 +34,7 @@ const theme = createTheme({
         info: {
             main: '#4481b6',
         },
+
     },
 
     typography: {
